@@ -13,7 +13,6 @@ def allowed_file(filename):
         and filename.rsplit(".", 1)[1].lower() in current_app.config["ALLOWED_EXTENSIONS"]
     )
 
-# Return all songs in the database
 @songs_bp.route("/api/songs", methods=["GET"])
 @jwt_required()
 def get_songs():
@@ -28,7 +27,6 @@ def get_songs():
         })
     return jsonify(song_data), 200
 
-# Upload a new song
 @songs_bp.route("/api/songs", methods=["POST"])
 @jwt_required()
 def upload_song():
@@ -56,7 +54,6 @@ def upload_song():
         "audio_url": f"{request.host_url.rstrip('/')}/static/audio/{filename}"
     }), 201
 
-# Serve static audio files
 @songs_bp.route("/static/audio/<filename>")
 def serve_audio(filename):
     return send_from_directory(os.path.join("static", "audio"), filename)

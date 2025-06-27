@@ -31,7 +31,6 @@ def create_app():
         audio_dir = os.path.join(os.getcwd(), "static", "audio")
         return send_from_directory(audio_dir, filename)
 
-    # Global CORS headers
     @app.after_request
     def add_cors_headers(response):
         response.headers["Access-Control-Allow-Origin"] = "http://localhost:5173"

@@ -8,7 +8,6 @@ from app import db
 
 auth_bp = Blueprint("auth", __name__)
 
-# --- LOGIN ---
 @auth_bp.route("/api/login", methods=["POST"])
 def login():
     try:
@@ -32,7 +31,6 @@ def login():
         return jsonify({"message": "Internal server error"}), 500
 
 
-# --- REGISTER ---
 @auth_bp.route("/api/register", methods=["POST"])
 def register():
     try:
@@ -58,7 +56,6 @@ def register():
         return jsonify({"message": "Internal server error"}), 500
 
 
-# --- GET PROFILE ---
 @auth_bp.route("/api/profile", methods=["GET"])
 @jwt_required()
 def get_profile():
@@ -69,7 +66,6 @@ def get_profile():
     return jsonify(user.to_dict()), 200
 
 
-# --- UPDATE PROFILE INFO ---
 @auth_bp.route("/api/profile", methods=["PUT"])
 @jwt_required()
 def update_profile():
@@ -99,7 +95,6 @@ def update_profile():
         return jsonify({"message": "Internal server error"}), 500
 
 
-# --- UPLOAD PROFILE IMAGE ---
 @auth_bp.route("/api/profile/image", methods=["POST"])
 @jwt_required()
 def upload_profile_image():
