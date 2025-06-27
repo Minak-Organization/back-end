@@ -27,7 +27,7 @@ def login():
         return jsonify({"token": access_token}), 200
 
     except Exception as e:
-        print("🚨 Login route error:", str(e))
+        print(" Login route error:", str(e))
         return jsonify({"message": "Internal server error"}), 500
 
 
@@ -52,7 +52,7 @@ def register():
         return jsonify({"message": "User registered successfully"}), 201
 
     except Exception as e:
-        print("🚨 Registration error:", str(e))
+        print(" Registration error:", str(e))
         return jsonify({"message": "Internal server error"}), 500
 
 
@@ -120,5 +120,5 @@ def upload_profile_image():
         }), 200
 
     except Exception as e:
-        print("🚨 Profile image upload error:", str(e))
+        print(" Profile image upload error:", str(e))
         return jsonify({"message": "Internal server error"}), 500
