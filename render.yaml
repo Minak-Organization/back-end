@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: music-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:create_app()
+    autoDeploy: true
