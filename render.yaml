@@ -3,5 +3,5 @@ services:
     name: music-backend
     env: python
     buildCommand: ""
-    startCommand: gunicorn 'app:create_app'
+    startCommand: gunicorn app:app
     autoDeploy: true
